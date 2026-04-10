@@ -37,6 +37,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Sobre', href: '#sobre' },
     { name: 'Modalidades', href: '#modalidades' },
+    { name: 'Equipe', href: '#equipe' },
     { name: 'Planos', href: '#planos' },
     { name: 'Horários', href: '#horarios' },
   ];
@@ -400,6 +401,113 @@ const Modalities = () => {
   );
 };
 
+const Team = () => {
+  const team = [
+    {
+      name: 'Enrico Sant’Anna',
+      role: 'Professor',
+      desc: 'Professor de Educação Física especializado em treinamento funcional e CrossFit, dedicado ao desenvolvimento técnico e à evolução segura dos alunos.',
+      instagram: 'https://www.instagram.com/enrico.santanna'
+    },
+    {
+      name: 'Gabriel',
+      role: 'Estagiário',
+      desc: 'Estagiário de Educação Física, atuando no suporte operacional das aulas e no acompanhamento dos alunos.'
+    },
+    {
+      name: 'Patrick Marcel',
+      role: 'Auxiliar Operacional',
+      desc: 'Responsável pelo suporte logístico e organização do ambiente, contribuindo para o bom funcionamento das atividades da academia.'
+    }
+  ];
+
+  return (
+    <section id="equipe" className="relative py-32 px-6 min-h-screen flex items-center overflow-hidden group">
+      {/* Background Video/Image */}
+      <div className="absolute inset-0 w-full h-full">
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline 
+          className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-1000"
+          poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop"
+        >
+          <source src="https://videos.pexels.com/video-files/3198300/3198300-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-brand-black/90 group-hover:bg-brand-black/70 transition-colors duration-1000 z-10" />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-20 w-full">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="w-8 h-[2px] bg-brand-red" />
+            <span className="font-condensed text-xs tracking-[0.4em] text-brand-red uppercase">Nossa Equipe</span>
+            <div className="w-8 h-[2px] bg-brand-red" />
+          </div>
+          <h2 className="text-5xl md:text-7xl leading-[0.9] mb-6">
+            PROFISSIONAIS <span className="text-brand-red">QUALIFICADOS</span>
+          </h2>
+          <p className="text-white/60 text-lg font-light max-w-2xl mx-auto">
+            Profissionais qualificados e comprometidos com a sua evolução.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {team.map((member, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.2 }}
+              className="bg-brand-black/60 backdrop-blur-md border border-white/10 p-8 clip-path-slant-sm hover:bg-brand-red/20 hover:border-brand-red/50 transition-all duration-500 group/card translate-y-4 hover:-translate-y-2"
+            >
+              <div className="font-condensed text-xs tracking-widest text-brand-red uppercase mb-4">
+                {member.role}
+              </div>
+              <h3 className="font-display text-3xl mb-4 text-white group-hover/card:text-brand-red transition-colors">
+                {member.name}
+              </h3>
+              <p className="text-white/60 font-light text-sm leading-relaxed mb-8">
+                {member.desc}
+              </p>
+              
+              {member.instagram && (
+                <a 
+                  href={member.instagram} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors font-condensed text-xs tracking-widest uppercase"
+                >
+                  <Instagram className="w-4 h-4" />
+                  Instagram
+                </a>
+              )}
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-20 text-center"
+        >
+          <a href="#cadastro" className="inline-block bg-brand-red hover:bg-brand-red-dark text-white font-condensed font-bold text-sm tracking-widest uppercase px-12 py-5 clip-path-slant transition-all">
+            AGENDE SUA AULA
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 const Plans = () => {
   const plans = [
     {
@@ -680,18 +788,21 @@ const ContactForm = () => {
             Preencha os dados abaixo para criar seu perfil no Desafio Corpus Cross. Você receberá o link do seu painel de pontos no WhatsApp.
           </p>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {[
-              { icon: <MapPin className="w-5 h-5" />, text: 'Nova Lima – MG (endereço confirmado no agendamento)' },
-              { icon: <Phone className="w-5 h-5" />, text: 'WhatsApp: (31) 9 0000-0000' },
-              { icon: <Instagram className="w-5 h-5" />, text: '@studiocorpusnl · @academiacorpus.br' },
+              { icon: <MapPin className="w-5 h-5" />, text: 'Unidade Centro – Nova Lima', href: 'https://www.google.com/maps/search/?api=1&query=Rua+Dr.+Davydoff+Lessa,+56,+Centro,+Nova+Lima,+MG' },
+              { icon: <MapPin className="w-5 h-5" />, text: 'Unidade Oswaldo Barbosa Pena II', href: 'https://www.google.com/maps/search/?api=1&query=Rua+Radialista+Adair+Gon%C3%A7alves+Pereira,+85,+Nova+Lima,+MG' },
+              { icon: <MapPin className="w-5 h-5" />, text: 'Unidade Raposos', href: 'https://www.google.com/maps/search/?api=1&query=Rua+Vereador+Felipe+Alves+da+Rocha,+413,+Raposos,+MG' },
+              { icon: <MapPin className="w-5 h-5" />, text: 'Unidade Caeté', href: 'https://www.google.com/maps/search/?api=1&query=Avenida+Dr.+Jo%C3%A3o+Pinheiro,+3267,+Caet%C3%A9,+MG' },
+              { icon: <Phone className="w-5 h-5" />, text: 'WhatsApp: (31) 99189-1285', href: 'https://wa.me/5531991891285' },
+              { icon: <Instagram className="w-5 h-5" />, text: '@academiacorpus.br', href: 'https://www.instagram.com/academiacorpus.br/?hl=pt' },
             ].map((item, i) => (
-              <div key={i} className="flex items-center gap-4 text-white/50 font-condensed tracking-widest text-sm uppercase">
-                <div className="w-10 h-10 bg-brand-dark-2 flex items-center justify-center clip-path-slant-sm text-brand-red">
+              <a key={i} href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-white/50 hover:text-brand-red font-condensed tracking-widest text-sm uppercase transition-colors group">
+                <div className="w-10 h-10 bg-brand-dark-2 flex items-center justify-center clip-path-slant-sm text-brand-red group-hover:bg-brand-red group-hover:text-white transition-colors shrink-0">
                   {item.icon}
                 </div>
-                {item.text}
-              </div>
+                <span className="leading-tight">{item.text}</span>
+              </a>
             ))}
           </div>
         </motion.div>
@@ -833,6 +944,7 @@ const Footer = () => {
               {[
                 { name: 'Sobre nós', href: '#sobre' },
                 { name: 'Modalidades', href: '#modalidades' },
+                { name: 'Nossa Equipe', href: '#equipe' },
                 { name: 'Planos', href: '#planos' },
                 { name: 'Horários', href: '#horarios' },
                 { name: 'Participar do Desafio', href: '#cadastro' }
@@ -847,9 +959,14 @@ const Footer = () => {
           <div>
             <h4 className="font-condensed text-[10px] tracking-[0.4em] text-white/30 uppercase mb-8">Rede Corpus</h4>
             <ul className="space-y-4">
-              {['Unidade Centro – Nova Lima', 'Unidade Oswaldo – Nova Lima', 'Unidade Raposos', 'Corpus Cross – Nova Lima'].map(item => (
-                <li key={item}>
-                  <a href="#" className="text-white/50 hover:text-brand-red transition-colors text-sm font-light">{item}</a>
+              {[
+                { name: 'Unidade Centro – Nova Lima', href: 'https://www.google.com/maps/search/?api=1&query=Rua+Dr.+Davydoff+Lessa,+56,+Centro,+Nova+Lima,+MG' },
+                { name: 'Unidade Oswaldo Barbosa Pena II', href: 'https://www.google.com/maps/search/?api=1&query=Rua+Radialista+Adair+Gon%C3%A7alves+Pereira,+85,+Nova+Lima,+MG' },
+                { name: 'Unidade Raposos', href: 'https://www.google.com/maps/search/?api=1&query=Rua+Vereador+Felipe+Alves+da+Rocha,+413,+Raposos,+MG' },
+                { name: 'Unidade Caeté', href: 'https://www.google.com/maps/search/?api=1&query=Avenida+Dr.+Jo%C3%A3o+Pinheiro,+3267,+Caet%C3%A9,+MG' }
+              ].map(item => (
+                <li key={item.name}>
+                  <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-brand-red transition-colors text-sm font-light">{item.name}</a>
                 </li>
               ))}
             </ul>
@@ -863,12 +980,13 @@ const Footer = () => {
           <div className="flex items-center gap-4">
             {[
               { icon: <Instagram className="w-4 h-4" />, href: 'https://www.instagram.com/academiacorpus.br/?hl=pt' },
-              { icon: <MessageCircle className="w-4 h-4" />, href: '#' },
-              { icon: <Facebook className="w-4 h-4" />, href: '#' },
+              { icon: <MessageCircle className="w-4 h-4" />, href: 'https://wa.me/5531991891285' },
             ].map((social, i) => (
               <a 
                 key={i} 
                 href={social.href} 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-brand-dark-2 flex items-center justify-center text-white/30 hover:bg-brand-red hover:text-white transition-all clip-path-slant-sm"
               >
                 {social.icon}
@@ -897,6 +1015,7 @@ export default function App() {
         <Gamification />
         <About />
         <Modalities />
+        <Team />
         <Plans />
         <Schedule />
         <ContactForm />
