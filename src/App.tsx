@@ -46,10 +46,9 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-brand-black/95 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="flex flex-col">
-            <span className="font-display text-xl md:text-2xl tracking-widest leading-none">CORPUS <span className="text-brand-red">CROSS</span></span>
-            <span className="font-condensed text-[8px] md:text-[10px] tracking-[0.3em] text-white/50 uppercase">by Corpus Fitness</span>
-          </div>
+          <a href="#" className="flex items-center">
+            <img src="/logo.png" alt="Corpus Cross" className="h-10 md:h-12 object-contain" />
+          </a>
         </div>
 
         {/* Desktop Links */}
@@ -930,8 +929,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
           <div className="md:col-span-2">
             <div className="flex flex-col mb-8">
-              <span className="font-display text-4xl tracking-widest leading-none">CORPUS <span className="text-brand-red">CROSS</span></span>
-              <span className="font-condensed text-[10px] tracking-[0.3em] text-white/50 uppercase">by Corpus Fitness · Nova Lima – MG</span>
+              <img src="/logo.png" alt="Corpus Cross" className="h-16 object-contain w-fit" />
             </div>
             <p className="text-white/40 font-light text-sm max-w-sm leading-relaxed">
               Transformando corpos e vidas desde 2021. Modalidade CrossFit da rede Corpus Fitness, referência fitness em Nova Lima e região.
