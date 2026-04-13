@@ -47,7 +47,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <a href="#" className="flex items-center">
-            <img src="/logo.png" alt="Corpus Cross" className="h-10 md:h-12 object-contain" />
+            <img src="/logo.png" alt="Corpus Cross" className="h-16 md:h-20 object-contain" />
           </a>
         </div>
 
@@ -83,7 +83,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-brand-dark-2 border-t border-white/10 p-6 md:hidden"
+            className="absolute top-full left-0 right-0 bg-brand-dark-2 border-t border-white/10 p-6 md:hidden shadow-lg"
           >
             <div className="flex flex-col gap-6">
               {navLinks.map((link) => (
@@ -403,12 +403,6 @@ const Modalities = () => {
 const Team = () => {
   const team = [
     {
-      name: 'Enrico Sant’Anna',
-      role: 'Professor',
-      desc: 'Professor de Educação Física especializado em treinamento funcional e CrossFit, dedicado ao desenvolvimento técnico e à evolução segura dos alunos.',
-      instagram: 'https://www.instagram.com/enrico.santanna'
-    },
-    {
       name: 'Gabriel',
       role: 'Estagiário',
       desc: 'Estagiário de Educação Física, atuando no suporte operacional das aulas e no acompanhamento dos alunos.'
@@ -477,9 +471,9 @@ const Team = () => {
                 {member.desc}
               </p>
               
-              {member.instagram && (
+              {(member as any).instagram && (
                 <a 
-                  href={member.instagram} 
+                  href={(member as any).instagram} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors font-condensed text-xs tracking-widest uppercase"
@@ -929,7 +923,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
           <div className="md:col-span-2">
             <div className="flex flex-col mb-8">
-              <img src="/logo.png" alt="Corpus Cross" className="h-16 object-contain w-fit" />
+              <img src="/logo.png" alt="Corpus Cross" className="h-24 object-contain w-fit" />
             </div>
             <p className="text-white/40 font-light text-sm max-w-sm leading-relaxed">
               Transformando corpos e vidas desde 2021. Modalidade CrossFit da rede Corpus Fitness, referência fitness em Nova Lima e região.
